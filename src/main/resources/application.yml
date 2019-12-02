@@ -1,0 +1,22 @@
+server:
+  port: 8004
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ccq_user?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 132132
+  jpa:
+    database: MYSQL
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+qiniu:
+  accessKey: TNy98ivtqsFW5zSsVTtHM-vEITQthShwf1fKQ_Ha
+  secretKey: rWox9Pc08ZX6XERFZdrs3SMxVA4Vk3_0t-D-C9Oa
+  bucket: ccq-pic
+  url: http://q1bj8tdy9.bkt.clouddn.com/
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.qf.pojo

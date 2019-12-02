@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/items/add">增加</a><br>
+<a href="/items/show">查询全部</a><br>
+<form action="/items/selectByNameAndPrice" method="get">
+    商品名称<input type="text" name="name">
+    商品定价<input type="text" name="price">
+    <input type="submit" value="查询">
+</form>
+<table>
+    <tr>
+        <td>No.</td>
+        <td>id</td>
+        <td>商品名称</td>
+        <td>商品定价</td>
+        <td>商品描述</td>
+        <td>商品图片</td>
+        <td>生产日期</td>
+        <td>操作</td>
+    </tr>
+    <tr th:each="all,memberStat:${all}">
+        <td th:text="${memberStat.index + 1}"/>
+        <td th:text="${all.id}"/>
+        <td th:text="${all.name}"/>
+        <td th:text="${all.price}"/>
+        <td th:text="${all.detail}"/>
+        <td><img th:src="${all.pic}" style="width: 100px"/></td>
+        <td th:text="${all.createtime}"/>
+        <td><a th:href="@{'/items/selectOne?id=' + ${all.id}}">修改</a>|<a th:href="@{'/items/deleteItems?id=' + ${all.id}}">删除</a>
+        </td>
+
+    </tr>
+
+
+</table>
+
+
+
+</body>
+</html>
